@@ -1,0 +1,405 @@
+/* ==========================================================================
+   ReZToon — Tablette (769px → 1024px : iPad mini / Air / Pro en portrait)
+   Principes : pas de hamburger (tout reste accessible dans l'en-tête),
+   cibles tactiles >= 40px, dialogues centrés, grilles 2 colonnes.
+   Ce fichier est importé en dernier : il remplace les règles « mobile » qui
+   s'appliquaient jusqu'à 900px et donnaient à la tablette une UI de téléphone.
+   ========================================================================== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --header-height: 64px;
+    --page-padding-top: calc(var(--header-height) + 24px);
+  }
+
+  /* ---------- En-tête : barre complète, sans hamburger ---------- */
+  :root .home-header {
+    padding: 12px 0;
+  }
+
+  :root .home-header .header-container {
+    gap: 16px;
+    flex-wrap: nowrap;
+  }
+
+  :root .nav-toggle,
+  :root .home-header .nav-toggle,
+  :root .mobile-only-nav,
+  :root .home-header.menu-open .header-actions.open .mobile-only-nav {
+    display: none !important;
+  }
+
+  :root .desktop-only-nav {
+    display: flex !important;
+    align-items: center;
+    gap: 8px;
+  }
+
+  :root .home-header .header-brand-group {
+    flex: 0 1 auto;
+    gap: 12px;
+  }
+
+  :root .home-header .logo {
+    font-size: 1.35rem;
+  }
+
+  /* Même si un ancien état « menu ouvert » subsiste (rotation d'écran), la barre reste en ligne. */
+  :root .home-header .header-actions,
+  :root .home-header.menu-open .header-actions.open {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 0 !important;
+    background: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    width: auto !important;
+    min-width: 0;
+  }
+
+  :root .home-header.menu-open .header-actions.open > * {
+    width: auto !important;
+  }
+
+  :root .home-header .header-icon-btn,
+  :root .home-header.menu-open .header-actions.open .header-icon-btn {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+  }
+
+  :root .home-header .header-icon-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  :root .home-header .profile-avatar {
+    width: 40px;
+    height: 40px;
+    margin: 0 !important;
+  }
+
+  /* Le contenu démarre sous l'en-tête de bureau (et non sous l'en-tête mobile). */
+  :root .home-main,
+  :root .library-main,
+  :root .manga-detail-main,
+  :root .awards-main,
+  :root .community-events-page,
+  :root .supervisor-page,
+  :root .supervisor-home,
+  :root .creator-page {
+    padding-top: var(--page-padding-top);
+  }
+
+  :root .community-layout {
+    padding-top: calc(var(--header-height) + 16px);
+  }
+
+  /* ---------- Panneaux (recherche, notifications, messages…) : menus ancrés, pas de plein écran ---------- */
+  :root .panel-anchor {
+    position: fixed !important;
+    inset: auto !important;
+    top: calc(var(--header-height) + 8px) !important;
+    right: 24px !important;
+    left: auto !important;
+    display: block !important;
+    background: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    z-index: calc(var(--z-modal) + 1) !important;
+  }
+
+  :root .panel {
+    width: 380px !important;
+    max-width: calc(100vw - 48px) !important;
+    max-height: min(560px, calc(100dvh - var(--header-height) - 32px)) !important;
+    border-radius: 16px !important;
+  }
+
+  :root .panel-mail {
+    width: min(760px, calc(100vw - 48px)) !important;
+    height: min(640px, calc(100dvh - var(--header-height) - 32px)) !important;
+    max-height: none !important;
+  }
+
+  :root .mail-body {
+    grid-template-columns: 280px 1fr;
+  }
+
+  :root .mail-folders {
+    display: none;
+  }
+
+  :root .mail-list {
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  :root .mail-thread {
+    position: relative;
+    inset: auto;
+    background: none;
+    z-index: auto;
+  }
+
+  :root .thread-back {
+    display: none;
+  }
+
+  :root .language-switcher-overlay,
+  :root .lite-toggle-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+  }
+
+  :root .language-switcher-menu,
+  :root .lite-toggle-panel {
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    right: 0 !important;
+    bottom: auto !important;
+    left: auto !important;
+    width: 260px !important;
+    max-width: calc(100vw - 48px) !important;
+    border-radius: 14px !important;
+    border: 1px solid rgba(245, 176, 66, 0.25) !important;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7) !important;
+    animation: none !important;
+  }
+
+  /* ---------- Page d'accueil ---------- */
+  :root .home-main .container,
+  :root .home-main .featured-slide .featured-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  :root .featured-slider,
+  :root .featured-slider-track,
+  :root .featured-slide {
+    min-height: clamp(540px, 64vh, 700px);
+  }
+
+  :root .featured-slide .featured-container {
+    padding: 96px 72px 104px;
+  }
+
+  :root .featured-title {
+    font-size: clamp(2.6rem, 6.4vw, 3.6rem);
+    letter-spacing: -1.5px;
+  }
+
+  :root .featured-nav {
+    width: 48px;
+    height: 48px;
+  }
+
+  :root .featured-nav-prev {
+    left: 20px;
+  }
+
+  :root .featured-nav-next {
+    right: 20px;
+  }
+
+  :root .annonces-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  :root .follow-btn-icon {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  /* ---------- Profil : dialogue centré, barre latérale avec libellés ---------- */
+  :root .profile-overlay {
+    padding: 24px !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  :root .profile-modal {
+    display: grid !important;
+    grid-template-columns: 224px minmax(0, 1fr) !important;
+    grid-template-rows: minmax(0, 1fr) !important;
+    flex-direction: row !important;
+    width: min(800px, 100%) !important;
+    max-width: 100% !important;
+    height: min(92dvh, 920px) !important;
+    max-height: 92dvh !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(245, 176, 66, 0.25) !important;
+    margin: 0 !important;
+    background: linear-gradient(145deg, rgba(28, 28, 46, 0.98), rgba(20, 20, 34, 0.98)) !important;
+  }
+
+  :root .profile-close {
+    top: 14px !important;
+    right: 16px !important;
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  :root .profile-sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: auto !important;
+    padding: 36px 14px 18px !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-bottom: none !important;
+    background: linear-gradient(180deg, rgba(13, 13, 26, 0.6), rgba(13, 13, 26, 0.3)) !important;
+    overflow-y: auto !important;
+    max-height: 100% !important;
+  }
+
+  :root .profile-sidebar-header {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 8px !important;
+    padding-bottom: 18px !important;
+    margin-bottom: 14px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  }
+
+  :root .profile-avatar-large {
+    width: 72px !important;
+    height: 72px !important;
+    font-size: 1.8rem !important;
+    margin: 0 !important;
+  }
+
+  :root .profile-sidebar-text {
+    align-items: center !important;
+    gap: 4px !important;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  :root .profile-sidebar-text h2,
+  :root .profile-sidebar-text p {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  :root .profile-sidebar-text h2 {
+    font-size: 1rem !important;
+  }
+
+  :root .profile-sidebar-text p {
+    font-size: 0.75rem !important;
+  }
+
+  :root .profile-sidebar-nav {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    gap: 4px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    flex: 1 !important;
+  }
+
+  :root .profile-nav-item {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 44px !important;
+    padding: 10px 12px !important;
+    border-radius: 10px !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+    font-size: 0.85rem !important;
+    box-shadow: none !important;
+  }
+
+  :root .profile-nav-item span {
+    display: inline !important;
+  }
+
+  :root .profile-nav-item svg {
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0;
+  }
+
+  :root .profile-nav-item.active {
+    background: rgba(245, 176, 66, 0.14) !important;
+    border-color: rgba(245, 176, 66, 0.4) !important;
+    color: var(--primary) !important;
+  }
+
+  :root .profile-sidebar-footer {
+    display: block !important;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  :root .profile-logout {
+    display: flex !important;
+    width: 100%;
+    min-height: 44px;
+  }
+
+  :root .profile-content {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 32px 28px 0 !important;
+    overflow-y: auto !important;
+    min-width: 0;
+  }
+
+  :root .profile-content-header {
+    text-align: left !important;
+    margin-bottom: 20px !important;
+  }
+
+  :root .profile-form .form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  :root .profile-form input,
+  :root .profile-form .profile-textarea,
+  :root .profile-form .profile-select {
+    font-size: 0.9rem !important;
+    min-height: 44px;
+  }
+
+  :root .profile-actions {
+    margin-left: -28px !important;
+    margin-right: -28px !important;
+    padding: 14px 28px !important;
+  }
+
+  :root .role-options {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  :root .wallet-stats,
+  :root .supervisor-profile-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* Tablette en paysage / petits laptops : le profil garde la même structure, un peu plus large. */
+@media (min-width: 1025px) and (max-width: 1180px) {
+  :root .profile-modal {
+    width: min(860px, 100%);
+  }
+}

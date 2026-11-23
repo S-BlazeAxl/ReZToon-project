@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Supervisor chips — styles partagés
+   Utilisés par : Console Overview (6 mois / 12 mois), Users, Reports,
+   Events, Genres, Search, Notifications.
+   Avant : ces règles étaient seulement dans supervisor-pages-style.css,
+   donc les boutons de la page Home n'avaient aucun style.
+   ========================================================================== */
+
+.supervisor-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.supervisor-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.3s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.supervisor-chip:hover {
+  color: #fff;
+  border-color: rgba(245, 176, 66, 0.4);
+}
+
+.supervisor-chip:focus-visible {
+  outline: 2px solid var(--primary, #f5b042);
+  outline-offset: 2px;
+}
+
+.supervisor-chip.active {
+  background: linear-gradient(135deg, var(--primary, #f5b042), var(--savanna, #e8a75c));
+  color: #0d0d1a;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(245, 176, 66, 0.3);
+}
+
+.supervisor-chip-count {
+  padding: 1px 7px;
+  border-radius: 40px;
+  background: rgba(0, 0, 0, 0.15);
+  font-size: 0.62rem;
+  font-weight: 900;
+}
+
+.supervisor-chip.active .supervisor-chip-count {
+  background: rgba(13, 13, 26, 0.25);
+}
+
+.supervisor-chip.reset {
+  background: rgba(234, 67, 53, 0.1);
+  border-color: rgba(234, 67, 53, 0.35);
+  color: #ff6b61;
+}
+
+.supervisor-chip.reset:hover {
+  background: rgba(234, 67, 53, 0.2);
+  border-color: #ea4335;
+  color: #ff6b61;
+}
+
+.supervisor-chip.sev-high.active {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(239, 68, 68, 0.4);
+}
+
+.supervisor-chip.sev-medium.active {
+  background: linear-gradient(135deg, #f5b042, #e8a75c);
+  color: #0d0d1a;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(245, 176, 66, 0.4);
+}
+
+.supervisor-chip.sev-low.active {
+  background: linear-gradient(135deg, #22c55e, #4ade80);
+  color: #0d0d1a;
+  border-color: transparent;
+  box-shadow: 0 6px 18px rgba(34, 197, 94, 0.4);
+}
+
+.supervisor-chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.85;
+}
+
+.supervisor-chip.sev-high:not(.active) .supervisor-chip-dot {
+  background: #ef4444;
+}
+
+.supervisor-chip.sev-medium:not(.active) .supervisor-chip-dot {
+  background: #f5b042;
+}
+
+.supervisor-chip.sev-low:not(.active) .supervisor-chip-dot {
+  background: #22c55e;
+}
+
+.supervisor-chip-divider {
+  display: inline-block;
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  align-self: center;
+  margin: 0 4px;
+}
+
+/* Mobile : puces plus compactes, zone tactile conservée */
+@media (max-width: 640px) {
+  .supervisor-chip {
+    font-size: 0.7rem;
+    padding: 7px 11px;
+    min-height: 36px;
+  }
+}

@@ -1,0 +1,473 @@
+.role-option {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+  gap: 10px !important;
+}
+
+.role-option > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 2px !important;
+}
+
+h1, .hero-title, .sup-hero-title, .community-events-title, .library-title {
+  font-size: clamp(1.6rem, 5vw, 2.6rem) !important;
+  line-height: 1.1 !important;
+}
+
+h2, .annonces-title, .weekly-title, .creators-title, .manga-section-title {
+  font-size: clamp(1.2rem, 4vw, 1.8rem) !important;
+}
+
+h3, .post-title, .annonce-title, .creator-card-title h3 {
+  font-size: clamp(1rem, 3.5vw, 1.25rem) !important;
+}
+
+p, .hero-sub, .post-content, .manga-description {
+  font-size: clamp(0.85rem, 2.5vw, 1rem) !important;
+}
+
+@media (max-width: 1024px) {
+  .btn, .btn-auth, .annonce-action-btn, .composer-trigger, .library-read-btn,
+  .post-action, .profile-nav-item, .library-tab, .feed-chip, .review-chip,
+  .supervisor-chip, .weekly-chip, .rank-chip, .reader-icon-btn {
+    min-height: 44px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-icon-btn, .annonces-arrow, .featured-nav, .message-icon-btn {
+    width: 44px !important;
+    height: 44px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header-icon-btn svg, .annonces-arrow svg, .message-icon-btn svg {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .container, .home-main, .community-layout, .creator-main, .supervisor-home, .library-main, .awards-main, .manga-detail-main {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .annonces-track, .library-grid, .creator-series-grid, .manga-related-grid,
+  .community-events-grid, .characters-track, .weekly-track, .rec-track, .following-track {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+    gap: 16px !important;
+  }
+
+  .annonces-track, .weekly-track, .characters-track, .rec-track, .following-track {
+    display: flex !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory !important;
+    padding-bottom: 16px !important;
+  }
+
+  .annonce-card, .weekly-card, .character-card, .rec-card, .following-card {
+    scroll-snap-align: start !important;
+  }
+
+  .community-layout {
+    grid-template-columns: 240px minmax(0, 1fr) !important;
+  }
+  .community-right-rail {
+    display: none !important;
+  }
+
+  .profile-modal {
+    width: 90% !important;
+    max-width: 900px !important;
+  }
+
+  .message-page {
+    grid-template-columns: 220px 300px minmax(0, 1fr) !important;
+  }
+
+  .events-history-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)) !important;
+  }
+
+  .featured-slider, .featured-slider-track, .featured-slide {
+    min-height: 600px !important;
+  }
+  .featured-slide-bg { opacity: 0.4 !important; }
+  .supervisor-analytics-grid { grid-template-columns: 1fr !important; }
+  .supervisor-analytics-card-wide { grid-column: span 1 !important; }
+}
+
+@media (max-width: 768px) {
+  .annonces-track, .library-grid, .creator-series-grid, .manga-related-grid,
+  .community-events-grid, .characters-track, .weekly-track, .continue-list, .rec-track, .following-track {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  .annonce-card, .library-card, .creator-series-card, .character-card, .rec-card, .weekly-card, .following-card {
+    flex: unset !important;
+    width: 100% !important;
+    min-height: 260px !important;
+  }
+
+  .annonce-cover, .library-cover, .creator-series-cover, .rec-cover, .weekly-card .annonce-cover {
+    height: 130px !important;
+  }
+
+  .library-tabs, .feed-filters, .characters-filters, .review-role-chips,
+  .review-sort-chips, .supervisor-chips, .weekly-filters {
+    display: flex !important;
+    overflow-x: auto !important;
+    flex-wrap: nowrap !important;
+    padding-bottom: 8px !important;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .library-tabs::-webkit-scrollbar, .feed-filters::-webkit-scrollbar,
+  .supervisor-chips::-webkit-scrollbar {
+    display: none;
+  }
+
+  .library-tab, .feed-chip, .review-chip, .supervisor-chip, .weekly-chip {
+    flex-shrink: 0 !important;
+  }
+
+  .message-page {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .message-grid-folders {
+    display: none !important;
+  }
+  .message-grid-list.has-active {
+    display: none !important;
+  }
+  .message-grid-thread {
+    display: none !important;
+  }
+  .message-grid-thread.open {
+    display: flex !important;
+  }
+
+  .creator-shell {
+    grid-template-columns: 1fr !important;
+  }
+  .creator-sidebar {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    padding: 10px !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    position: relative !important;
+    height: auto !important;
+    align-items: center !important;
+  }
+  .creator-nav {
+    flex-direction: row !important;
+    gap: 8px !important;
+  }
+  .creator-nav-item {
+    white-space: nowrap !important;
+    padding: 8px 12px !important;
+  }
+  .creator-sidebar-footer {
+    display: flex !important;
+    margin-left: auto !important;
+  }
+
+  .supervisor-table, .creator-table {
+    display: block !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  .supervisor-table-head, .supervisor-table-row,
+  .creator-table-head, .creator-table-row {
+    min-width: 700px !important;
+  }
+
+  .reader-bottom {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 8px 12px !important;
+    gap: 8px !important;
+  }
+  .reader-nav-btn.center {
+    grid-column: 1 / -1 !important;
+    order: 3 !important;
+    margin-top: 4px;
+  }
+  .reader-nav-btn {
+    padding: 10px 12px !important;
+    font-size: 0.75rem !important;
+  }
+  .reader-settings {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .manga-hero-inner, .awards-hero-inner {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+  .manga-cover-frame {
+    margin: 0 auto;
+    max-width: 200px;
+  }
+  .manga-author-line, .manga-stats-row, .manga-actions,
+  .awards-hero-right, .awards-hero-stats, .awards-countdown {
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap;
+  }
+  .manga-author-line .follow-btn {
+    margin-left: 0 !important;
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  .supervisor-page-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .supervisor-page-action {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .community-left-rail, .community-right-rail {
+    display: none !important;
+  }
+  .rec-track, .following-track {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .events-history-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .newsletter-row {
+    grid-template-columns: 1fr !important;
+  }
+  .genres-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .sup-roles-grid, .sup-pulse-grid, .sup-quick-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .sup-hero {
+    padding: 24px 16px !important;
+  }
+
+  .featured-slider, .featured-slider-track, .featured-slide {
+    min-height: 500px !important;
+  }
+  .featured-slide .featured-container {
+    padding: 60px 16px 80px !important;
+  }
+  .featured-title { font-size: 2.2rem !important; }
+  .featured-title .highlight { font-size: 2.8rem !important; }
+  .featured-meta { justify-content: center; }
+  .featured-actions { flex-direction: column; width: 100%; }
+  .featured-actions .btn { width: 100%; justify-content: center; }
+  .featured-stats { justify-content: center; gap: 16px; }
+}
+
+@media (max-width: 480px) {
+  .container, .home-main, .community-layout, .creator-main, .supervisor-home, .library-main, .awards-main, .manga-detail-main {
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+  }
+
+  .annonces-track, .library-grid, .manga-related-grid, .community-events-grid, .continue-list, .rec-track, .following-track {
+    grid-template-columns: 1fr !important;
+  }
+
+  .continue-item, .profile-library-item, .library-card {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .continue-cover, .profile-library-cover, .library-cover {
+    width: 100% !important;
+    height: 160px !important;
+    border-radius: 12px !important;
+  }
+
+  .continue-play {
+    display: none !important;
+  }
+
+  .creator-form-actions, .profile-actions, .composer-actions, .review-form-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .creator-form-actions .btn, .profile-actions .btn-auth,
+  .composer-actions .btn, .review-form-actions .btn {
+    width: 100% !important;
+  }
+
+  .group-modal, .awards-modal, .files-modal, .message-modal, .modal-content {
+    width: 100% !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+
+  .post-head {
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+  }
+  .post-type-badge {
+    order: 3;
+    width: 100%;
+    text-align: center;
+  }
+  .post-manga-card {
+    grid-template-columns: 1fr !important;
+  }
+  .post-manga-cover {
+    height: 120px !important;
+    width: 100% !important;
+  }
+
+  .message-composer-wrapper {
+    padding: 8px !important;
+  }
+  .message-composer input[type="text"] {
+    padding: 10px 14px !important;
+  }
+
+  .awards-podium {
+    grid-template-columns: 1fr !important;
+  }
+  .awards-podium-item.rank-gold {
+    transform: none !important;
+  }
+
+  .manga-chapter-row {
+    grid-template-columns: 1fr auto !important;
+  }
+  .manga-chapter-meta, .manga-chapter-pages {
+    display: none !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  .hero-actions .btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .featured-slider, .featured-slider-track, .featured-slide {
+    min-height: 420px !important;
+  }
+  .hero-title { font-size: 1.8rem !important; }
+  .hero-title .highlight { font-size: 2.2rem !important; }
+  .hero-sub { font-size: 0.9rem !important; }
+
+  .awards-hero { padding: 24px 16px !important; }
+  .awards-countdown-timer { flex-wrap: wrap; justify-content: center; }
+  .awards-countdown-unit { min-width: 56px; padding: 8px 10px; }
+
+  .supervisor-analytics-card { padding: 14px !important; }
+  .chart-bar-h-row { grid-template-columns: 80px 1fr 60px !important; font-size: 0.65rem; }
+  .chart-donut { grid-template-columns: 1fr !important; }
+  .chart-donut svg { width: 140px; height: 140px; }
+
+  .auth-page { padding: 12px !important; }
+  .auth-card { width: 100% !important; min-height: auto !important; padding: 24px 16px !important; }
+  .auth-card .logo-brand { font-size: 2.5rem !important; }
+
+  .role-options { grid-template-columns: 1fr !important; }
+  .role-option { flex-direction: row !important; justify-content: flex-start !important; text-align: left !important; padding: 12px 14px !important; gap: 10px !important; }
+  .role-option span { font-size: 0.7rem !important; }
+
+  .profile-library-item { grid-template-columns: 1fr !important; }
+  .profile-library-cover { width: 100% !important; max-width: 120px !important; height: 140px !important; margin: 0 auto !important; }
+  .profile-library-actions { flex-direction: row !important; justify-content: center !important; flex-wrap: wrap !important; }
+
+  .emoji-picker { width: calc(100vw - 24px) !important; right: 12px !important; bottom: 70px !important; height: 320px !important; }
+  .emoji-grid { grid-template-columns: repeat(6, 1fr) !important; }
+
+  .audio-player-extra { flex-wrap: wrap !important; justify-content: center !important; }
+  .audio-player-volume { max-width: 100% !important; }
+  .audio-player-controls { gap: 12px !important; }
+  .audio-player-btn-main { width: 54px !important; height: 54px !important; }
+
+  .media-viewer-nav { width: 40px !important; height: 40px !important; }
+  .media-viewer-nav.prev { left: 10px !important; }
+  .media-viewer-nav.next { right: 10px !important; }
+
+  .search-filters-chips { flex-wrap: wrap !important; }
+}
+
+@media (max-width: 360px) {
+  h1, h2, h3 {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    hyphens: auto;
+  }
+
+  .header-brand-group .logo {
+    font-size: 1.2rem !important;
+  }
+
+  .header-icon-btn {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .header-icon-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .hero-stats, .featured-stats, .sup-hero-big {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+
+  .stat-item::after {
+    display: none !important;
+  }
+
+  .annonce-card, .rec-card, .character-card {
+    min-height: 240px !important;
+  }
+
+  .annonce-cover, .rec-cover {
+    height: 110px !important;
+  }
+
+  .featured-title {
+    font-size: 1.8rem !important;
+  }
+
+  .manga-title {
+    font-size: 1.6rem !important;
+  }
+
+  .featured-slider, .featured-slider-track, .featured-slide {
+    min-height: 400px !important;
+  }
+  .hero-stats { flex-wrap: wrap; justify-content: center; }
+  .stat-item { flex: 1 1 40%; }
+  .awards-countdown-timer { gap: 4px; }
+  .awards-countdown-unit { min-width: 48px; padding: 6px 8px; }
+  .awards-countdown-unit strong { font-size: 1.2rem; }
+}

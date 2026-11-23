@@ -1,0 +1,388 @@
+/* ===== Supervisor · Genre studio ===== */
+
+.gen-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(245, 176, 66, 0.08);
+  border: 1px solid rgba(245, 176, 66, 0.35);
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.gen-banner > span {
+  flex: 1 1 260px;
+}
+
+.gen-impact {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.gen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 16px;
+}
+
+.gen-card {
+  --gen-accent: #f5b042;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 20px 16px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(28, 28, 46, 0.95), rgba(20, 20, 34, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-top: 3px solid var(--gen-accent);
+  font-family: 'Poppins', sans-serif;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+
+.gen-card::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto auto;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle at top right, var(--gen-accent), transparent 70%);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.gen-card:hover {
+  border-color: var(--gen-accent);
+  transform: translateY(-2px);
+}
+
+.gen-card.is-hidden {
+  opacity: 0.6;
+}
+
+.gen-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.gen-card-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.gen-card-title h3 {
+  margin: 0;
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.gen-equivalent {
+  color: var(--gen-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.gen-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.gen-badge {
+  padding: 3px 10px;
+  border-radius: 40px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+}
+
+.gen-badge.on {
+  background: rgba(74, 222, 128, 0.12);
+  border-color: rgba(74, 222, 128, 0.35);
+  color: #4ade80;
+}
+
+.gen-badge.main {
+  background: rgba(245, 176, 66, 0.12);
+  border-color: rgba(245, 176, 66, 0.4);
+  color: #f5b042;
+}
+
+.gen-desc {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.78rem;
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.gen-usage {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.gen-usage span {
+  padding: 3px 9px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.gen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.gen-actions .events-history-btn {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: none;
+}
+
+.gen-actions .events-history-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.gen-actions .spacer {
+  flex: 1;
+}
+
+/* ----- Modal ----- */
+
+.gen-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal, 5000);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(5, 5, 12, 0.78);
+  backdrop-filter: blur(6px);
+}
+
+.gen-modal {
+  width: min(720px, 100%);
+  max-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #1c1c2e, #12121f);
+  border: 1px solid rgba(245, 176, 66, 0.25);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+}
+
+.gen-modal.narrow {
+  width: min(480px, 100%);
+}
+
+.gen-modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 18px 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.gen-modal-head h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.gen-close {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+}
+
+.gen-close:hover {
+  border-color: rgba(245, 176, 66, 0.5);
+  color: #f5b042;
+}
+
+.gen-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 22px;
+  overflow-y: auto;
+}
+
+.gen-modal-foot {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 14px 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.gen-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 110px;
+  gap: 12px;
+}
+
+.gen-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.gen-field label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.gen-field label em {
+  font-style: normal;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.gen-field label em.ok {
+  color: #4ade80;
+}
+
+.gen-field input[type='text'],
+.gen-field textarea,
+.gen-field select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.gen-field select option {
+  background: #1c1c2e;
+  color: #fff;
+}
+
+.gen-field textarea {
+  min-height: 150px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.gen-field input:focus,
+.gen-field textarea:focus,
+.gen-field select:focus {
+  border-color: rgba(245, 176, 66, 0.6);
+  box-shadow: 0 0 0 3px rgba(245, 176, 66, 0.12);
+}
+
+.gen-field input[type='color'] {
+  width: 100%;
+  height: 40px;
+  padding: 2px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.gen-hint {
+  margin: 0;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.5;
+}
+
+.gen-warn {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(245, 176, 66, 0.08);
+  border: 1px solid rgba(245, 176, 66, 0.3);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
+
+.gen-error {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(234, 67, 53, 0.12);
+  border: 1px solid rgba(234, 67, 53, 0.4);
+  color: #ff8a80;
+  font-size: 0.76rem;
+}
+
+.gen-text {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .gen-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gen-row {
+    grid-template-columns: 1fr;
+  }
+
+  .gen-overlay {
+    padding: 10px;
+    align-items: flex-end;
+  }
+}

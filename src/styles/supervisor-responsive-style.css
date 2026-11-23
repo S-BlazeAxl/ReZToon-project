@@ -1,0 +1,248 @@
+/* ==========================================================================
+   Supervisor — responsive (tablette + mobile)
+   Chargé APRÈS les autres feuilles supervisor pour pouvoir les surcharger.
+   Breakpoints : 900px (tablette), 640px (mobile), 380px (petit mobile).
+   ========================================================================== */
+
+/* ---- Sécurités globales (tous écrans) ---------------------------------- */
+.supervisor-analytics,
+.supervisor-analytics-card,
+.supervisor-kpi-card {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Évite le débordement horizontal quand la fenêtre est plus étroite que 340px */
+.supervisor-analytics-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+}
+
+.supervisor-stats-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+}
+
+/* Boutons de période (6 mois / 12 mois) : groupe segmenté */
+.supervisor-analytics-period {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px;
+  border-radius: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.supervisor-analytics-period .supervisor-chip {
+  min-width: 84px;
+}
+
+/* ---- Tablette ----------------------------------------------------------- */
+@media (max-width: 900px) {
+  .supervisor-analytics {
+    gap: 18px;
+  }
+
+  .supervisor-analytics-card {
+    padding: 18px;
+  }
+
+  .supervisor-analytics-card-wide {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ---- Mobile ------------------------------------------------------------- */
+@media (max-width: 640px) {
+  .supervisor-analytics {
+    gap: 16px;
+  }
+
+  /* En-tête : titre au-dessus, période en pleine largeur dessous */
+  .supervisor-analytics-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .supervisor-analytics-head p {
+    font-size: 0.82rem;
+  }
+
+  .supervisor-analytics-period {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .supervisor-analytics-period .supervisor-chip {
+    width: 100%;
+    min-height: 40px;
+    font-size: 0.78rem;
+  }
+
+  /* KPI : 2 colonnes */
+  .supervisor-kpi-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .supervisor-kpi-card {
+    padding: 14px;
+    border-radius: 14px;
+  }
+
+  .supervisor-kpi-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.8px;
+  }
+
+  .supervisor-kpi-value {
+    font-size: 1.55rem;
+  }
+
+  .supervisor-kpi-trend-label {
+    font-size: 0.62rem;
+  }
+
+  /* Cartes */
+  .supervisor-analytics-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .supervisor-analytics-card {
+    padding: 16px 14px;
+    border-radius: 14px;
+    gap: 12px;
+  }
+
+  .supervisor-analytics-card-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* Courbe : libellés plus serrés */
+  .chart-line-labels {
+    padding: 0 6px;
+    font-size: 0.56rem;
+  }
+
+  .chart-legend {
+    gap: 8px 12px;
+    justify-content: flex-start;
+  }
+
+  /* Barres horizontales : libellé / barre / valeur */
+  .chart-bar-h-row {
+    grid-template-columns: minmax(70px, 0.9fr) minmax(0, 1.4fr) auto;
+    gap: 8px;
+  }
+
+  /* Barres verticales */
+  .chart-bar-v {
+    height: 150px;
+    gap: 4px;
+  }
+
+  .chart-bar-v-label {
+    font-size: 0.54rem;
+    letter-spacing: 0;
+  }
+
+  /* Donut : centré, légende dessous */
+  .chart-donut {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 14px;
+  }
+
+  .chart-donut-legend {
+    width: 100%;
+  }
+
+  /* Top créateurs / lecteurs : métriques sous le nom */
+  .supervisor-top-item {
+    grid-template-columns: 24px 32px minmax(0, 1fr);
+    row-gap: 6px;
+  }
+
+  .supervisor-top-metrics {
+    grid-column: 2 / -1;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Santé de la plateforme */
+  .supervisor-health {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 14px;
+  }
+
+  .supervisor-health-stats {
+    width: 100%;
+  }
+
+  .supervisor-insight {
+    padding: 10px 12px;
+    font-size: 0.78rem;
+  }
+
+  /* Cartes de stats génériques */
+  .supervisor-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+  }
+
+  .supervisor-stat-card {
+    padding: 0.9rem;
+  }
+
+  .supervisor-stat-value {
+    font-size: 1.25rem;
+  }
+
+  /* Alerte et profil superviseur */
+  .supervisor-alert {
+    padding: 10px 12px;
+  }
+
+  .supervisor-locked-role {
+    padding: 12px;
+  }
+
+  /* Boutons Edit / Delete : pleine largeur */
+  .events-history-buttons {
+    width: 100%;
+  }
+
+  .events-history-buttons .events-history-btn {
+    flex: 1 1 0;
+    justify-content: center;
+  }
+
+  /* Modales opaques : jamais plus hautes que l'écran */
+  .modal-content.modal-opaque {
+    padding: 28px 20px;
+    max-height: 90dvh;
+    overflow-y: auto;
+  }
+}
+
+/* ---- Petit mobile ------------------------------------------------------- */
+@media (max-width: 380px) {
+  .supervisor-kpi-grid,
+  .supervisor-stats-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .supervisor-kpi-value {
+    font-size: 1.4rem;
+  }
+
+  .supervisor-analytics-head h2 {
+    font-size: 1.4rem;
+  }
+}

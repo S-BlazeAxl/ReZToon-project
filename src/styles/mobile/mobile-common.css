@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  *::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body, input, textarea, select, button {
+    font-family: 'Poppins', sans-serif !important;
+  }
+}

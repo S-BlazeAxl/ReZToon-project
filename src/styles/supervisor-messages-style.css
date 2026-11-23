@@ -1,0 +1,111 @@
+.supervisor-messages-shell {
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--z-panel);
+  background: var(--dark, #0d0d1a);
+  background-image: var(--pattern-dots);
+  background-size: 32px 32px;
+  overflow: hidden;
+}
+
+.supervisor-messages-shell .message-page {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  grid-template-columns: 260px 340px minmax(0, 1fr);
+}
+
+.supervisor-messages-shell .message-folders,
+.supervisor-messages-shell .message-list,
+.supervisor-messages-shell .message-thread {
+  border-radius: 0;
+  border-top: none;
+  border-bottom: none;
+  height: 100%;
+}
+
+.supervisor-messages-shell .message-folders {
+  border-left: none;
+}
+
+.supervisor-messages-shell .message-thread {
+  border-right: none;
+}
+
+.supervisor-messages-shell .message-list {
+  padding: 18px 0;
+}
+
+.supervisor-messages-shell .message-conv-list {
+  max-height: none;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.supervisor-messages-shell .message-thread-messages {
+  max-height: none;
+}
+
+.supervisor-messages-shell .message-grid {
+  min-height: 0;
+}
+
+.supervisor-messages-shell .message-multi-tab-hint {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .supervisor-messages-shell .message-page {
+    grid-template-columns: 220px 300px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .supervisor-messages-shell .message-page {
+    grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1.4fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .supervisor-messages-shell {
+    top: var(--header-height-mobile);
+  }
+
+  .supervisor-messages-shell .message-page {
+    grid-template-columns: minmax(0, 1fr);
+    height: 100%;
+  }
+
+  .supervisor-messages-shell .message-grid-folders {
+    display: none;
+  }
+
+  .supervisor-messages-shell .message-grid-list {
+    display: flex;
+  }
+
+  .supervisor-messages-shell .message-grid-list.has-active {
+    display: none;
+  }
+
+  .supervisor-messages-shell .message-grid-thread {
+    display: none;
+  }
+
+  .supervisor-messages-shell .message-grid-thread.open {
+    display: flex;
+  }
+}
+
+@media (max-width: 520px) {
+  .supervisor-messages-shell {
+    top: var(--header-height-mobile);
+  }
+}
